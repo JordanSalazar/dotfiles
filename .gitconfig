@@ -1,23 +1,17 @@
 # This is Git's per-user configuration file.
-[core]
-# Please adapt and uncomment the following lines:
-	user = Jordan Salazar
-	email = jrsalazar@cirkel.cc
-	mergeoptions = --no-edit
 [user]
-	name = Jordan Salazar
-	email = jrsalazar@cirkel.cc
+# Please adapt and uncomment the following lines:
+	name = jrsalazar
+	email = contact@jrsalazar.dev
 [push]
 	default = matching
-	followTags = true
-[rerere]
-	enabled = true
-
-[gitflow "prefix"]
-    feature = feature/
-    release = release/
-    hotfix = hotfix/
-    support = 
-    versiontag = v
-[pull]
-	default = simple
+[core]
+	excludesfile = /Users/jrs/.gitignore
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[alias]
+	conflicted = !nvim +Conflicted
