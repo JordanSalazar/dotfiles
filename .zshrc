@@ -1,7 +1,8 @@
 # Correctly display UTF-8 with combining characters.
 setopt combiningchars
 
-alias vim='/usr/bin/nvim'
+alias vim='/usr/local/bin/nvim'
+alias v='vim'
 
 ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="ys"
@@ -10,9 +11,11 @@ ZSH_THEME="ys"
 alias zshconfig="vim ~/.zshrc"
 alias zshreload="source ~/.zshrc"
 
-plugins=(git arch bower npm composer gitfast rvm history history-substring-search terminalapp laravel5 laravel4 colorize zsh-syntax-highlighting)
+plugins=(git npm composer gitfast history history-substring-search colorize tmux)
 
 source $ZSH/oh-my-zsh.sh
+
+# source <(antibody init)
 
 # User configuration
 ## Git aliases
@@ -24,7 +27,6 @@ alias gco='git checkout'
 alias gst='git status'
 alias gd='git diff'
 alias gps='git push origin'
-alias ggpsp='grunt build && git push origin production'
 alias gpsm='git push origin master'
 alias gplm='git pull origin master'
 alias gpl='git pull origin'
@@ -63,6 +65,7 @@ alias tmuxgo='tmux new-session \; split-window \; split-window \; select-layout 
 alias tsp='tmux select-pane '
 alias tsfp='tmux select-pane -t:.0'
 alias tkill='tmux kill-server'
+alias tmux='tmux -u'
 
 ## Taskwarrior
 alias t='task'
@@ -88,13 +91,12 @@ alias tobottom='TOLASTLINE=$(tput cup "$LINES");PS1="\[$TOLASTLINE\]$PS1"'
 alias gulp-persist='while true; do gulp; sleep 3; done;'
 alias flac-to-m4a='for f in *.flac; do ffmpeg -i "$f"  -vf "crop=((in_w/2)*2):((in_h/2)*2)" -c:a alac "${f%.flac}.m4a"; done'
 alias phpconfig='vim /usr/local/etc/php/5.6/php.ini'
-alias open='xdg-open'
 alias steam-wine='wine ~/.wine/drive_c/Program\ Files/Steam/Steam.exe -no-cef-sandbox'
 alias wget-deps='wget -E -H -k -K -p'
 alias steam='STEAM_RUNTIME=0 steam'
-alias ssh-evt-staging='ssh evt@37.97.188.195'
-alias ssh-tfs='ssh 247redesign@95.85.50.134'
-alias ssh-hardnews='ssh hardnews@95.170.95.39'
+alias pt="rg --hidden"
+alias sshk="cat ~/.ssh/id_rsa.pub | pbcopy"
+alias rn='react-native'
 
 function flac-to-mp3 {
     for a in ./*.flac; do
@@ -108,27 +110,27 @@ export GEM_PATH=~/.gem
 export APPLICATION_ENV="development"
 
 export EDITOR='vim'
-export PATH="$HOME/.config/composer/vendor/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/jrs/.composer/vendor/bin:$GEM_HOME/bin:$HOME/.node_modules/bin:/opt/android-sdk/tools"
+export PATH="$HOME/.config/composer/vendor/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:$GEM_HOME/bin:$HOME/.node_modules/bin:$HOME/Library/Android/sdk/platform-tools:$HOME/Library/Android/sdk/tools:/bin:./vendor/bin:./node_modules/.bin:/usr/sbin/:/Library/TeX/texbin"
 
-export CDPATH='.:/home/jrs:/home/jrs/www'
+export CDPATH='.:/Users/jrs:/Users/jrs/www/'
 export COWPATH="$HOME/.cowsay"
 export ZDOTDIR='/home/jrs'
 
-export ANDROID_HOME=/opt/android-sdk
+export ANDROID_HOME=/Users/jrs/Library/Android/sdk
 export npm_config_prefix=~/.node_modules
 
 export WINEARCH=win32
 
-eval "$(dircolors ~/.dir_colors)"
+eval "$(gdircolors ~/.dir_colors)"
 
-fortune -o | cowsay -f 'skeleton.cow'
+bindkey "^[[1;3C" forward-word
+bindkey "^[[1;3D" backward-word
+
+# fortune -o | cowsay -f 'skeleton.cow'
 
 #BASE16_SHELL="$HOME/.config/base16-shell/base16-monokai.dark.sh"
 #[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
-eval "$(thefuck --alias)"
-
 alias mysql=$(echo -e 'mysql --prompt="\x1B[31m\\u\x1B[34m@\x1B[32m\\h\x1B[0m:\x1B[36m\\d>\x1B[0m "')
 
-task list
-
+PATH="$(brew --prefix)/opt/coreutils/libexec/gnubin:$PATH:/usr/local/texlive/2020basic/bin/x86_64-darwin"
