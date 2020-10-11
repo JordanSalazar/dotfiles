@@ -48,7 +48,7 @@ Plug 'suan/vim-instant-markdown'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'amadeus/vim-mjml'
 Plug 'janko/vim-test'
-" Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 " Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
 " Plug 'arcticicestudio/nord-vim'
 " Plug 'lifepillar/vim-solarized8'
@@ -59,12 +59,14 @@ Plug 'vim-airline/vim-airline-themes'
 " Plug 'pangloss/vim-javascript'
 " Plug 'leafgarland/typescript-vim'
 Plug 'phanviet/vim-monokai-pro'
-Plug 'prettier/vim-prettier', {
-  \ 'do': 'npm install',
-  \ 'for': ['javascript', 'typescript', 'vue'] }
+" Plug 'prettier/vim-prettier', {
+"   \ 'do': 'npm install',
+"   \ 'for': ['javascript', 'typescript', 'vue'] }
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'arnaud-lb/vim-php-namespace'
 Plug 'noahfrederick/vim-laravel'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'APZelos/blamer.nvim'
 
 call plug#end()

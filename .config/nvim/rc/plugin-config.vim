@@ -89,15 +89,12 @@ let g:pdv_template_dir = '/Users/jrs/.config/nvim/Plug/pdv/templates_snip'
 " \ '_': ['ale', 'phpcd'],
 " \})
 
-" Prettier
-" let g:prettier#exec_cmd_async = 1
-" let g:prettier#autoformat = 0
 " let g:prettier#quickfix_enabled = 0
 
 " Vim tmux navigator
 let g:tmux_navigator_no_mappings = 1
 
-let $FZF_DEFAULT_COMMAND = 'rg -l ""'
+let $FZF_DEFAULT_COMMAND = 'rg --glob="!.git/*" --hidden -l ""'
 let g:fzf_layout = { 'window': { 'width': 0.5, 'height': 0.5, 'yoffset': 0, 'xoffset': 0.5 } }
 
 nnoremap <silent> ˙ :TmuxNavigateLeft<cr>
@@ -114,5 +111,12 @@ nnoremap <silent> ¬ :TmuxNavigateRight<cr>
 
 " autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=black
 " autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=black
+
+" VS Code blamer
+let g:blamer_enabled = 1
+let g:blamer_delay = 350
+let g:blamer_relative_time = 1
+
+let g:jsdoc_lehre_path = '/Users/jrs/.config/nvim/Plug/vim-jsdoc/lib/node_modules/.bin/lehre'
 
 let g:typescript_indent_disable = 1

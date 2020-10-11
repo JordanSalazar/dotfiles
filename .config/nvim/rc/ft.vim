@@ -9,5 +9,3 @@ autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
 
 autocmd FileType php set tabstop=4 shiftwidth=4 softtabstop=4
-
-autocmd! BufWritePost,BufRead *.js,*.jsx,*.mjs,*.ts,*.tsx,*.vue PrettierAsync

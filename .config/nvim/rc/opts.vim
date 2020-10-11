@@ -152,13 +152,15 @@ augroup end
 " Remap for do codeAction of current line
 " nmap <leader>ac  <Plug>(coc-codeaction)
 " Fix autofix problem of current line
-nmap <leader>qf  <Plug>(coc-fix-current)
+nmap <leader>fq  <Plug>(coc-fix-current)
 
 " Create mappings for function text object, requires document symbols feature of languageserver.
 xmap if <Plug>(coc-funcobj-i)
 xmap af <Plug>(coc-funcobj-a)
 omap if <Plug>(coc-funcobj-i)
 omap af <Plug>(coc-funcobj-a)
+
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 " Use <TAB> for select selections ranges, needs server support, like: coc-tsserver, coc-python
 " nmap <silent> <TAB> <Plug>(coc-range-select)
